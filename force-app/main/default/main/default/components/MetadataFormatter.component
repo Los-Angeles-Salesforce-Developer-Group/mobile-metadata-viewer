@@ -1,0 +1,9 @@
+<apex:component controller="MetadataFormatterController">
+    <apex:attribute name="inputText" type="String" assignTo="{!inputTextString}" required="true"
+        description="The text passed in to this component to format." />
+    <apex:attribute name="lineNumbering" type="Boolean" default="true" assignTo="{!hasLineNumbering}"
+        description="Whether to include line numbering in the formatting." />
+    
+    <pre>{!outputTextString}</pre>
+    
+</apex:component>

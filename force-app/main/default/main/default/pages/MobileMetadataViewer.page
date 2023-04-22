@@ -1,0 +1,151 @@
+<apex:page controller="MobileMetadataViewerController" doctype="html-5.0" sidebar="false" showheader="false" standardstylesheets="false">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    
+    <apex:stylesheet value="{!URLFOR($Resource.jQueryMobileResources, 'jquery.mobile-1.3.0.min.css')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQueryMobileResources, 'jquery-1.9.1.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jQueryMobileResources, 'jquery.mobile-1.3.0.min.js')}"/>
+    
+</head>
+
+<body>
+<div data-role="page" data-theme="b" id="homePage">  
+    <div data-role="header">
+        <h1>Mobile Metadata Browser</h1>
+    </div>
+    
+    <div data-role="content" >
+        <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="b" >
+            <li><a href="#classesPage" >Apex Classes</a></li>
+            <li><a href="#triggersPage">Apex Triggers</a></li>
+            <li><a href="#pagesPage">Apex Pages</a></li>
+            <li><a href="#componentsPage">Apex Components</a></li>
+        </ul>
+    </div>
+</div>  
+
+<div data-role="page" data-theme="b" id="classesPage">  
+    <div data-role="header" data-position="fixed">
+        <a href="#homePage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+        <h1>Apex Classes</h1>
+    </div>
+    
+    <div data-role="content" >
+        <ul id="acList" data-filter="true" data-inset="true" data-role="listview" data-theme="c" >
+            <apex:repeat value="{!allClasses}" var="c">
+                <li>
+                    <h3>
+                        <apex:outputField value="{!c.Name}" />
+                    </h3>
+                    <ul>
+                        <li>
+                            <div data-role="header" data-position="fixed">
+                                <a href="#classesPage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+                                <h1><apex:outputField value="{!c.Name}" /></h1>
+                            </div>
+                            <pre>
+                              <apex:outputField value="{!c.Body}" />
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </apex:repeat>
+        </ul>
+    </div>
+</div>  
+    
+<div data-role="page" data-theme="b" id="triggersPage">  
+    <div data-role="header">
+        <a href="#homePage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+        <h1>Apex Triggers</h1>
+    </div>
+    
+    <div data-role="content" >
+        <ul id="atList" data-filter="true" data-inset="true" data-role="listview" data-theme="c" >
+            <apex:repeat value="{!allTriggers}" var="t">
+                <li>
+                    <h3>
+                        <apex:outputField value="{!t.Name}" />
+                    </h3>
+                    <ul>
+                        <li>
+                            <div data-role="header" data-position="fixed">
+                                <a href="#triggersPage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+                                <h1><apex:outputField value="{!t.Name}" /></h1>
+                            </div>
+                            <pre>
+                              <apex:outputField value="{!t.Body}" />
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </apex:repeat>
+        </ul>
+    </div>
+</div>  
+
+<div data-role="page" data-theme="b" id="pagesPage"> 
+    <div data-role="header">
+        <a href="#homePage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+        <h1>Visualforce Pages</h1>
+    </div>
+    
+    <div data-role="content" >
+        <ul id="acList" data-filter="true" data-inset="true" data-role="listview" data-theme="c" >
+            <apex:repeat value="{!allPages}" var="p">
+                <li>
+                    <h3>
+                        <apex:outputField value="{!p.Name}" />
+                    </h3>
+                    <ul>
+                        <li>
+                            <div data-role="header" data-position="fixed">
+                                <a href="#pagesPage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+                                <h1><apex:outputField value="{!p.Name}" /></h1>
+                            </div>
+                            <pre>
+                              <apex:outputField value="{!p.Markup}" />
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </apex:repeat>
+        </ul>
+    </div>
+</div>  
+    
+<div data-role="page" data-theme="b" id="componentsPage">  
+    <div data-role="header">
+        <a href="#homePage" id="back2ContactList" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+        <h1>Visualforce Components</h1>
+    </div>
+    
+    <div data-role="content" >
+        <ul id="acList" data-filter="true" data-inset="true" data-role="listview" data-theme="c" >
+            <apex:repeat value="{!allComponents}" var="c">
+                <li>
+                    <h3>
+                        <apex:outputField value="{!c.Name}" />
+                    </h3>
+                    <ul>
+                        <li>
+                            <div data-role="header" data-position="fixed">
+                                <a href="#componentsPage" class="ui-btn-left" data-icon="arrow-l" data-direction="reverse" data-transition="slide">Back</a>
+                                <h1><apex:outputField value="{!c.Name}" /></h1>
+                            </div>
+                            <pre>
+                              <apex:outputField value="{!c.Markup}" />
+                            </pre>
+                        </li>
+                    </ul>
+                </li>
+            </apex:repeat>
+        </ul>
+    </div>
+</div>  
+
+
+</body>
+
+</apex:page>
