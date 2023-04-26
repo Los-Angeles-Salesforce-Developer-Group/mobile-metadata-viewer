@@ -1,21 +1,21 @@
 public with sharing class MobileMetadataViewerController{
     public List<ApexClass> getAllClasses(){
-        List<ApexClass> cList = mmdv_ApexClassesSelector.newInstance().getAllClassesLimit2000();
+        List<ApexClass> cList = new ApexClassesSelector().getAllClassesLimit2000();
         return cList;
     }
     
     public List<ApexTrigger> getAllTriggers(){
-        List<ApexTrigger> tList = new mmdv_ApexTriggersSelector().getAllTriggersLimit2000();
+        List<ApexTrigger> tList = new ApexTriggersSelector().getAllTriggersLimit2000();
         return tList;
     }
     
     public List<ApexComponent> getAllComponents(){
-        List<ApexComponent> cList = new mmdv_VisualforceComponentsSelector().getAllComponentsLimit2000();
+        List<ApexComponent> cList = new VisualforceComponentsSelector().getAllComponentsLimit2000();
         return cList;
     }
     
     public List<ApexPage> getAllPages(){
-        List<ApexPage> pList = new mmdv_VisualforcePagesSelector().getAllPagesLimit2000();
+        List<ApexPage> pList = new VisualforcePagesSelector().getAllPagesLimit2000();
         return pList;
     }
 }

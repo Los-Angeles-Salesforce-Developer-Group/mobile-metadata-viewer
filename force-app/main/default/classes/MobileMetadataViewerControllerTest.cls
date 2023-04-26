@@ -1,6 +1,6 @@
 @isTest
-global class MobileMetadataViewerControllerTest{
-    global static testmethod void testPopulateTable(){
+global class MobileMetadataViewerControllerTest {
+    global static testmethod void testPopulateTable() {
         MobileMetadataViewerController ctrlr = new MobileMetadataViewerController();
         List<ApexClass>     lstClasses     = ctrlr.getAllClasses();
         List<ApexTrigger>   lstTriggers    = ctrlr.getAllTriggers();
